@@ -53,4 +53,4 @@ This is the result of prediction
 
 ![image](https://github.com/ToanToan110/SalesPrediction/assets/64849001/ddf237f5-ce2c-41a6-a514-5800e9c80a43)
 
-Look so good with this time series data.
+Not bad with this time series data.
