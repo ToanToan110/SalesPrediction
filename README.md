@@ -32,3 +32,25 @@ The overall trend of sales by date of the dataset:
 # Feature Engineering
 With the seasonal time series, we usually use the lag as a features for prediction task.
   
+Because of the this the date level, We should create 30 lag feature, it's lookes like:
+
+![image](https://github.com/ToanToan110/SalesPrediction/assets/64849001/084a8442-45ae-49e9-9b42-e52c654b05a5)
+
+Then use that data to train a neural network include LSTM processer and 1 Dense layer.
+
+```python
+from keras.models import Sequential
+from keras.layers import LSTM
+from keras.layers import Dense
+model = Sequential()
+model.add(LSTM(2, batch_input_shape=(1, X_train.shape[1], X_train.shape[2]), stateful=True))
+model.add(Dense(1))
+model.compile(loss='mean_squared_error', optimizer='adam')
+model.fit(X_train, y_train, epochs=10, batch_size=1, verbose=1, shuffle=False)
+```
+
+This is the result of prediction
+
+![image](https://github.com/ToanToan110/SalesPrediction/assets/64849001/ddf237f5-ce2c-41a6-a514-5800e9c80a43)
+
+Look so good with this time series data.
